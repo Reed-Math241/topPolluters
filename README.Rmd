@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Insert Package Name
+# Combined Toxic 100 / Greenhouse 100 Indexes
 
 <!-- badges: start -->
 <!-- badges: end -->
