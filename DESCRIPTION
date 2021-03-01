@@ -4,26 +4,11 @@ Title: Combined Toxic 100 / Greenhouse 100 Indexes (2020 Report, Based on 2018 D
 Version: 0.1.0
 Author: University of Massachusetts Amherst, Political Economy Research Institute
 Maintainer: mabeyerch@reed.edu, alyandric@reed.edu, albisbub@reed.edu 
-Description: 
-    Use four spaces when indenting paragraphs within the Description.
-This data set lists the top 100 polluter companies by the comparative risk they pose to chronic human health from air pollutants directly released or transferred to incinerators (and not destroyed) from large facilities in the US in 2018.
-
-Variables
-polluter = Parent Entity or Corporation
-toxic.air.rank = Toxic 100 Air Rank
-greenhouse.rank = Greenhouse 100 Rank
-toxic.air.poor = Toxic 100 Air EJ: Poor Share
-toxic.air.minority = Toxic 100 Air EJ: Minority Share
-toxic.water.rank = Toxic 100 Water Rank
-greenhouse.poor = Greenhouse 100 EJ: Poor Share
-greenhouse.minority = Greenhouse 100 EJ: Minority Share
-
-Environmental Justice (EJ): Poor Share and Minority Share: Shares of the total population health risk borne by people living below the poverty line or by people in minority racial/ethnic groups. 
-    Sources: US EPA, US Census, and CTIP.
-
+Description: This data set lists the top 100 polluter companies by the comparative risk they pose to chronic human health from air pollutants directly released or transferred to incinerators (and not destroyed) from large facilities in the US in 2018.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 2.10)
-    dyplr()
+Imports: dplyr
+RoxygenNote: 7.1.1
