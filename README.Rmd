@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Combined Toxic 100 / Greenhouse 100 Indexes
+# Top Climate, Air, and Water Polluters (2018)
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of XXX is to ...
+Researchers at the Political Economy Research Institute (PERI) at the University of Massachusetts Amherst created this all encompassing dataset on the top 100 parent entities or corporations that contributed to greenhouse gas pollution, air pollution, and water pollution. 
 
 ## Installation
 
