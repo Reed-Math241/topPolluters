@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: University of Massachusetts Amherst, Political Economy Research Institute
 Maintainer: mabeyerch@reed.edu, alyandric@reed.edu, albisbub@reed.edu 
 Description: This data set lists the top 100 polluter companies by the comparative risk they pose to chronic human health from air pollutants directly released or transferred to incinerators (and not destroyed) from large facilities in the US in 2018.
-License: What license is it under?
+License: © 2019 Political Economic Research Institute. All rights reserved.
 Encoding: UTF-8
 LazyData: true
 Depends: 
