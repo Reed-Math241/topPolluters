@@ -53,20 +53,21 @@ ggplot(topAir, aes(x = polluter, y = percentage, fill = metric)) +
   aes(x = fct_reorder(polluter, toxic.air.rank, .desc = TRUE)) +
   scale_y_continuous(breaks = c(0, 20, 40, 60, 80, 100),
                      labels = c("0%", "20%", "40%", "60%", "80%", "100%"),
-                     expand = c(0, 1)) +
-  labs(title = "The Top 30 U.S. Industrial Pollutors of Air Toxics\n
-       And the Resulting Exposure to Low-Income People and Minorities",
-       caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.
+                     expand = expansion(add = c(0, 2))) +
+  labs(title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018\nand the Resulting Exposure to Low-Income People and Minorities",
+       caption = 
+       "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.
        The percentages are in regards to the makeup of the at-risk populations (which are typically those nearest to the toxic facilities),
        but spefically how much of the at risk population is below the poverty line or is a racial/ethnic minority.",
-       x = "Top Pollutors of Air Toxics (in Descending Order of Rank)") +
-  theme(axis.title.x = element_blank(),
-        legend.title = element_blank(),
+       x = "Top Pollutors of Air Toxics (in Descending Order of Rank)",
+       y = "Percent Group Makes Up of Total At-Risk Population") +
+  theme(legend.title = element_blank(),
         plot.title = element_text(hjust = 0.5),
-        plot.caption = element_text(hjust = 0.5, size = 10)) +
+        plot.caption = element_text(hjust = 0.5, size = 10),
+        legend.position = 'top') +
   scale_fill_manual(values=c("#E69F00", "#56B4E9"),
                        breaks=c("toxic.air.poor", "toxic.air.minority"),
-                       labels=c("People below\nthe poverty line", "Racial/ethnic\nminorities")) +
+                       labels=c("People below the poverty line", "Racial/ethnic minorities")) +
   coord_flip() 
   
 ```
