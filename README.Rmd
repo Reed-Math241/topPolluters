@@ -37,50 +37,39 @@ install.packages("topPolluters")
 library(topPolluters)
 library(tidyr)
 library(ggplot2)
-library(viridis)
-topPolluters
-topPolluters[1:12, ] %>%
-  pivot_longer(!polluter, names_to = "Metric", values_to = "Value") %>%
-  filter( grepl('rank', Metric)) %>%
-  mutate(text = fct_reorder(Metric, Value)) %>%
-  ggplot(aes(fill = polluter, y = Value, x = Metric)) +
-  geom_bar(position = "dodge", stat = "identity") +
-  scale_fill_viridis(discrete = T, option = "E") +
-  ggtitle("Pollution Metrics By Firm") +
-  facet_wrap(~polluter) +
-  theme(legend.position = "none") +
-  xlab("") +
-  theme(axis.text.x = element_text(angle = -90, hjust = 0))
+library(forcats)
+
+topAir <-  topPolluters %>%
+  filter(toxic.air.rank <= 30) %>%
+  select(polluter, toxic.air.rank, toxic.air.poor, toxic.air.minority) %>%
+  pivot_longer(cols = c(toxic.air.minority, toxic.air.poor),
+               names_to = "metric",
+               values_to = "percentage")
+topAir$percentage <- topAir$percentage * 100
+  
+ggplot(topAir, aes(x = polluter, y = percentage, fill = metric)) +
+  geom_bar(width = 0.7, position = "dodge", stat = "identity") +
+  theme_bw() +
+  aes(x = fct_reorder(polluter, toxic.air.rank, .desc = TRUE)) +
+  scale_y_continuous(breaks = c(0, 20, 40, 60, 80, 100),
+                     labels = c("0%", "20%", "40%", "60%", "80%", "100%"),
+                     expand = c(0, 1)) +
+  labs(title = "The Top 30 U.S. Industrial Pollutors of Air Toxics\n
+       And the Resulting Exposure to Low-Income People and Minorities",
+       caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.
+       The percentages are in regards to the makeup of the at-risk populations (which are typically those nearest to the toxic facilities),
+       but spefically how much of the at risk population is below the poverty line or is a racial/ethnic minority.",
+       x = "Top Pollutors of Air Toxics (in Descending Order of Rank)") +
+  theme(axis.title.x = element_blank(),
+        legend.title = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0.5, size = 10)) +
+  scale_fill_manual(values=c("#E69F00", "#56B4E9"),
+                       breaks=c("toxic.air.poor", "toxic.air.minority"),
+                       labels=c("People below\nthe poverty line", "Racial/ethnic\nminorities")) +
+  coord_flip() 
+  
 ```
-```{r example}
-topPolluters
-topPolluters[1:12, ] %>%
-  pivot_longer(!polluter, names_to = "Metric", values_to = "Value") %>%
-  filter( grepl('poor', Metric)) %>%
-  mutate(text = fct_reorder(Metric, Value)) %>%
-  ggplot(aes(fill = polluter, y = Value, x = Metric)) +
-  geom_bar(position = "dodge", stat = "identity") +
-  scale_fill_viridis(discrete = T, option = "E") +
-  ggtitle("Pollution Metrics By Firm") +
-  facet_wrap(~polluter) +
-  theme(legend.position = "none") +
-  xlab("") +
-  theme(axis.text.x = element_text(angle = -90, hjust = 0))
-```
-```{r example}
-topPolluters
-topPolluters[1:12, ] %>%
-  pivot_longer(!polluter, names_to = "Metric", values_to = "Value") %>%
-  filter( grepl('minority', Metric)) %>%
-  mutate(text = fct_reorder(Metric, Value)) %>%
-  ggplot(aes(fill = polluter, y = Value, x = Metric)) +
-  geom_bar(position = "dodge", stat = "identity") +
-  scale_fill_viridis(discrete = T, option = "E") +
-  ggtitle("Pollution Metrics By Firm") +
-  facet_wrap(~polluter) +
-  theme(legend.position = "none") +
-  xlab("") +
-  theme(axis.text.x = element_text(angle = -90, hjust = 0))
-```
+
 #devtools::build_readme()
 
