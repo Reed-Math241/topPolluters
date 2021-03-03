@@ -25,18 +25,62 @@ Researchers at the Political Economy Research Institute (PERI) at the University
 ## Installation
 
 The development version of XXX is available from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("Reed-Math241/pkgDemo")
+```{r}
+install.packages("devtools")
+install.packages("topPolluters")
 ```
 ## Example
 
 
+
 ```{r example}
-library(pkgDemo)
+library(topPolluters)
+library(tidyr)
+library(ggplot2)
+library(viridis)
+topPolluters
+topPolluters[1:12, ] %>%
+  pivot_longer(!polluter, names_to = "Metric", values_to = "Value") %>%
+  filter( grepl('rank', Metric)) %>%
+  mutate(text = fct_reorder(Metric, Value)) %>%
+  ggplot(aes(fill = polluter, y = Value, x = Metric)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  scale_fill_viridis(discrete = T, option = "E") +
+  ggtitle("Pollution Metrics By Firm") +
+  facet_wrap(~polluter) +
+  theme(legend.position = "none") +
+  xlab("") +
+  theme(axis.text.x = element_text(angle = -90, hjust = 0))
 ```
-
-
-
+```{r example}
+topPolluters
+topPolluters[1:12, ] %>%
+  pivot_longer(!polluter, names_to = "Metric", values_to = "Value") %>%
+  filter( grepl('poor', Metric)) %>%
+  mutate(text = fct_reorder(Metric, Value)) %>%
+  ggplot(aes(fill = polluter, y = Value, x = Metric)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  scale_fill_viridis(discrete = T, option = "E") +
+  ggtitle("Pollution Metrics By Firm") +
+  facet_wrap(~polluter) +
+  theme(legend.position = "none") +
+  xlab("") +
+  theme(axis.text.x = element_text(angle = -90, hjust = 0))
+```
+```{r example}
+topPolluters
+topPolluters[1:12, ] %>%
+  pivot_longer(!polluter, names_to = "Metric", values_to = "Value") %>%
+  filter( grepl('minority', Metric)) %>%
+  mutate(text = fct_reorder(Metric, Value)) %>%
+  ggplot(aes(fill = polluter, y = Value, x = Metric)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  scale_fill_viridis(discrete = T, option = "E") +
+  ggtitle("Pollution Metrics By Firm") +
+  facet_wrap(~polluter) +
+  theme(legend.position = "none") +
+  xlab("") +
+  theme(axis.text.x = element_text(angle = -90, hjust = 0))
+```
+#devtools::build_readme()
 
