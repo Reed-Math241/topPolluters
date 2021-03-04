@@ -38,11 +38,18 @@ each subgroup makes up.
 
 ### toxic.air.rank
 
-  - Toxic 100 Air Rank; the company’s rank for air toxics 2018
+  - Toxic 100 Air Rank; the company’s rank based on air toxics from
+    large facilities in 2018
 
 ### greenhouse.rank
 
-  - Greenhouse 100 Rank; the company’s rank for greenhouse gases in 2018
+  - Greenhouse 100 Rank; the company’s rank based on greenhouse gas
+    emissions from large facilities in 2018
+
+### toxic.water.rank
+
+  - Toxic 100 Water Rank; the company’s rank based on water toxics from
+    large facilities in 2018
 
 ### toxic.air.poor
 
@@ -53,11 +60,6 @@ each subgroup makes up.
 
   - Toxic 100 Air EJ: Minority Share; shares of potential exposure to
     air toxics borne by people in minority racial/ethnic groups
-
-### toxic.water.rank
-
-  - Toxic 100 Water Rank; the company’s rank for water toxics from large
-    facilities in 2018
 
 ### greenhouse.poor
 
@@ -78,9 +80,9 @@ each subgroup makes up.
 
 <!-- end list -->
 
-    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7c274a6d'
+    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b73583c47b'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7c274a6d'
+    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b73583c47b'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 

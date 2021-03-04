@@ -5,11 +5,11 @@
 #' @format  A data frame with 220 observations on the following 8 variables:
 #' \describe{
 #'   \item{polluter}{Parent Entity or Corporation}
-#'   \item{toxic.air.rank}{Toxic 100 Air Rank; the company's rank for air toxics 2018}
-#'   \item{greenhouse.rank}{Greenhouse 100 Rank; the company's rank for greenhouse gases in 2018}
+#'   \item{toxic.air.rank}{Toxic 100 Air Rank; the company's rank based on air toxics from large facilities in 2018}
+#'   \item{greenhouse.rank}{Greenhouse 100 Rank; the company's rank based on greenhouse gas emissions from large facilities in 2018}
+#'   \item{toxic.water.rank}{Toxic 100 Water Rank; the company's rank based on water toxics from large facilities in 2018}
 #'   \item{toxic.air.poor}{Toxic 100 Air EJ: Poor Share; shares of potential exposure to air toxics borne by people living below the poverty line}
 #'   \item{toxic.air.minority}{Toxic 100 Air EJ: Minority Share; shares of potential exposure to air toxics borne by people in minority racial/ethnic groups}
-#'   \item{toxic.water.rank}{Toxic 100 Water Rank; the company's rank for water toxics from large facilities in 2018}
 #'   \item{greenhouse.poor}{Greenhouse 100 EJ: Poor Share; shares of potential exposure to co-pollutants of combustion borne by people living below the poverty line}
 #'   \item{greenhouse.minority}{Greenhouse 100 EJ: Minority Share; shares of potential exposure to co-pollutants of combustion borne by people in minority racial/ethnic groups}
 #' }

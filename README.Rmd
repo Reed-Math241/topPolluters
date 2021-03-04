@@ -32,19 +32,19 @@ Data on the combined toxic 100 / greenhouse 100 indexes (2020 report, based on 2
 - Parent Entity or Corporation
 
 ### toxic.air.rank
-- Toxic 100 Air Rank; the company's rank for air toxics 2018
+- Toxic 100 Air Rank; the company's rank based on air toxics from large facilities in 2018
 
 ### greenhouse.rank
-- Greenhouse 100 Rank; the company's rank for greenhouse gases in 2018
+- Greenhouse 100 Rank; the company's rank based on greenhouse gas emissions from large facilities in 2018
+
+### toxic.water.rank
+- Toxic 100 Water Rank; the company's rank based on water toxics from large facilities in 2018
 
 ### toxic.air.poor
 - Toxic 100 Air EJ: Poor Share; shares of potential exposure to air toxics borne by people living below the poverty line
 
 ### toxic.air.minority
 - Toxic 100 Air EJ: Minority Share; shares of potential exposure to air toxics borne by people in minority racial/ethnic groups
-
-### toxic.water.rank
-- Toxic 100 Water Rank; the company's rank for water toxics from large facilities in 2018
 
 ### greenhouse.poor
 - Greenhouse 100 EJ: Poor Share; shares of potential exposure to co-pollutants of combustion borne by people living below the poverty line
