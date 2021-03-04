@@ -15,15 +15,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Top Climate, Air, and Water Polluters (data from 2018)
+# Top U.S. Climate, Air, and Water Polluters (data from 2018)
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-## Description
-Data on the combined toxic 100 / greenhouse 100 indexes (2020 report, based on 2018 data). Researchers at the Political Economy Research Institute (PERI) at the University of Massachusetts Amherst published new editions of the Greenhouse 100 Index, ranking U.S. companies by their emissions responsible for global climate change according to the U.S. EPA Greenhouse Gas Reporting Program, and the Toxic 100 Air and Toxic 100 Water Indexes, ranking U.S. industrial polluters using the U.S. EPA Toxics Release Inventory. The PERI Indexes include Environmental Justice indicators to assess impacts on low-income people and minorities.
+## Dataset Description
+Data on the combined toxic 100 / greenhouse 100 indexes (2020 report, based on 2018 data). Researchers at the Political Economy Research Institute (PERI) at the University of Massachusetts Amherst published new editions of the Greenhouse 100 Index, ranking U.S. companies by their emissions from their large facilities responsible for global climate change according to the U.S. EPA Greenhouse Gas Reporting Program, and the Toxic 100 Air and Toxic 100 Water Indexes, ranking U.S. industrial polluters using the U.S. EPA Toxics Release Inventory. The PERI Indexes include Environmental Justice indicators to assess impacts on people below the poverty line and racial/ethnic minorities. Specifically, these Environmental Justice variables measure marginalized groups possible exposure to the toxins released by specific corporations/entities, and the percent of the total at-risk population each subgroup makes up.
 
-## Usage
+## Variable Description
 
 ### topPolluters
 - A data frame with 220 observations on the following 8 variables:
@@ -102,7 +102,7 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
         axis.text.x = element_text(angle = -90, hjust = 0)) 
 ```
 
-## Example 2 -  Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
+## Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
 ```{r}
 topPolluters %>%
   filter(toxic.air.rank <= 30) %>%

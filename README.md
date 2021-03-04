@@ -3,26 +3,30 @@
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
-# Top Climate, Air, and Water Polluters (data from 2018)
+# Top U.S. Climate, Air, and Water Polluters (data from 2018)
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-## Description
+## Dataset Description
 
 Data on the combined toxic 100 / greenhouse 100 indexes (2020 report,
 based on 2018 data). Researchers at the Political Economy Research
 Institute (PERI) at the University of Massachusetts Amherst published
 new editions of the Greenhouse 100 Index, ranking U.S. companies by
-their emissions responsible for global climate change according to the
-U.S. EPA Greenhouse Gas Reporting Program, and the Toxic 100 Air and
-Toxic 100 Water Indexes, ranking U.S. industrial polluters using the
-U.S. EPA Toxics Release Inventory. The PERI Indexes include
-Environmental Justice indicators to assess impacts on low-income people
-and minorities.
+their emissions from their large facilities responsible for global
+climate change according to the U.S. EPA Greenhouse Gas Reporting
+Program, and the Toxic 100 Air and Toxic 100 Water Indexes, ranking U.S.
+industrial polluters using the U.S. EPA Toxics Release Inventory. The
+PERI Indexes include Environmental Justice indicators to assess impacts
+on people below the poverty line and racial/ethnic minorities.
+Specifically, these Environmental Justice variables measure marginalized
+groups possible exposure to the toxins released by specific
+corporations/entities, and the percent of the total at-risk population
+each subgroup makes up.
 
-## Usage
+## Variable Description
 
 ### topPolluters
 
@@ -74,9 +78,9 @@ and minorities.
 
 <!-- end list -->
 
-    #> Installing package into '/tmp/RtmphdkT0Z/temp_libpath7b8018113b86'
+    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7c274a6d'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmphdkT0Z/temp_libpath7b8018113b86'
+    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7c274a6d'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 
