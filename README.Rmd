@@ -80,8 +80,6 @@ topPolluters %>%
   ) +
   theme(
     legend.title = element_blank(),
-    plot.title = element_text(hjust = 0.5),
-    plot.caption = element_text(hjust = 0.5),
     legend.position = "top"
   ) +
   scale_fill_manual(

@@ -21,10 +21,10 @@ The development version of XXX is available from
 
 ``` r
 install.packages("devtools")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b736968eff'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b75e031030'
 #> (as 'lib' is unspecified)
 install.packages("topPolluters")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b736968eff'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b75e031030'
 #> (as 'lib' is unspecified)
 #> Warning: package 'topPolluters' is not available for this version of R
 #> 
@@ -99,8 +99,6 @@ topPolluters %>%
   ) +
   theme(
     legend.title = element_blank(),
-    plot.title = element_text(hjust = 0.5),
-    plot.caption = element_text(hjust = 0.5),
     legend.position = "top"
   ) +
   scale_fill_manual(
