@@ -9,60 +9,99 @@
 
 <!-- badges: end -->
 
-Researchers at the Political Economy Research Institute (PERI) at the
-University of Massachusetts Amherst created this all encompassing
-dataset on the top 100 parent entities or corporations that contributed
-to greenhouse gas pollution, air pollution, and water pollution.
+## Description
 
-## Installation
+Data on the combined toxic 100 / greenhouse 100 indexes (2020 report,
+based on 2018 data). Researchers at the Political Economy Research
+Institute (PERI) at the University of Massachusetts Amherst published
+new editions of the Greenhouse 100 Index, ranking U.S. companies by
+their emissions responsible for global climate change according to the
+U.S. EPA Greenhouse Gas Reporting Program, and the Toxic 100 Air and
+Toxic 100 Water Indexes, ranking U.S. industrial polluters using the
+U.S. EPA Toxics Release Inventory. The PERI Indexes include
+Environmental Justice indicators to assess impacts on low-income people
+and minorities.
 
-The development version of XXX is available from
-[GitHub](https://github.com/) with:
+## Usage
 
-``` r
-install.packages("devtools")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7196089c7'
-#> (as 'lib' is unspecified)
-install.packages("topPolluters")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7196089c7'
-#> (as 'lib' is unspecified)
-#> Warning: package 'topPolluters' is not available for this version of R
-#> 
-#> A version of this package for your version of R might be available elsewhere,
-#> see the ideas at
-#> https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
-library(topPolluters)
-#> Loading required package: dplyr
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-library(tidyr)
-library(ggplot2)
-library(viridis)
-#> Loading required package: viridisLite
-library(forcats)
-### Sample of the data.
-head(topPolluters)
-#>         polluter toxic.air.rank greenhouse.rank toxic.air.poor
-#> 1 LyondellBasell              1              91           0.17
-#> 2         Boeing              2              NA           0.15
-#> 3       Huntsman              3              NA           0.15
-#> 4           BASF              4             147           0.20
-#> 5       Dow Inc.              5              44           0.20
-#> 6       Celanese              6              NA           0.15
-#>   toxic.air.minority greenhouse.poor greenhouse.minority toxic.water.rank
-#> 1               0.68            0.19                0.78                3
-#> 2               0.35              NA                  NA               77
-#> 3               0.47              NA                  NA              135
-#> 4               0.35            0.15                0.48                2
-#> 5               0.42            0.18                0.50                4
-#> 6               0.59              NA                  NA                5
-```
+### topPolluters
+
+  - A data frame with 220 observations on the following 8 variables:
+
+### polluter
+
+  - Parent Entity or Corporation
+
+### toxic.air.rank
+
+  - Toxic 100 Air Rank; the company’s rank for air toxics 2018
+
+### greenhouse.rank
+
+  - Greenhouse 100 Rank; the company’s rank for greenhouse gases in 2018
+
+### toxic.air.poor
+
+  - Toxic 100 Air EJ: Poor Share; shares of potential exposure to air
+    toxics borne by people living below the poverty line
+
+### toxic.air.minority
+
+  - Toxic 100 Air EJ: Minority Share; shares of potential exposure to
+    air toxics borne by people in minority racial/ethnic groups
+
+### toxic.water.rank
+
+  - Toxic 100 Water Rank; the company’s rank for water toxics from large
+    facilities in 2018
+
+### greenhouse.poor
+
+  - Greenhouse 100 EJ: Poor Share; shares of potential exposure to
+    co-pollutants of combustion borne by people living below the poverty
+    line
+
+### greenhouse.minority
+
+  - Greenhouse 100 EJ: Minority Share; shares of potential exposure to
+    co-pollutants of combustion borne by people in minority
+    racial/ethnic groups
+
+### Source
+
+  - <https://www.peri.umass.edu/combined-toxic-100-greenhouse-100-indexes-current>
+    \#\# Installation
+
+<!-- end list -->
+
+    #> Installing package into '/tmp/RtmphdkT0Z/temp_libpath7b8018113b86'
+    #> (as 'lib' is unspecified)
+    #> Installing package into '/tmp/RtmphdkT0Z/temp_libpath7b8018113b86'
+    #> (as 'lib' is unspecified)
+    #> Warning: package 'topPolluters' is not available for this version of R
+    #> 
+    #> A version of this package for your version of R might be available elsewhere,
+    #> see the ideas at
+    #> https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
+    #> Loading required package: dplyr
+    #> 
+    #> Attaching package: 'dplyr'
+    #> The following objects are masked from 'package:stats':
+    #> 
+    #>     filter, lag
+    #> The following objects are masked from 'package:base':
+    #> 
+    #>     intersect, setdiff, setequal, union
+    #> Loading required package: viridisLite
+
+| polluter       | toxic.air.rank | greenhouse.rank | toxic.air.poor | toxic.air.minority | greenhouse.poor | greenhouse.minority | toxic.water.rank |
+| :------------- | -------------: | --------------: | -------------: | -----------------: | --------------: | ------------------: | ---------------: |
+| LyondellBasell |              1 |              91 |           0.17 |               0.68 |            0.19 |                0.78 |                3 |
+| Boeing         |              2 |              NA |           0.15 |               0.35 |              NA |                  NA |               77 |
+| Huntsman       |              3 |              NA |           0.15 |               0.47 |              NA |                  NA |              135 |
+| BASF           |              4 |             147 |           0.20 |               0.35 |            0.15 |                0.48 |                2 |
+| Dow Inc.       |              5 |              44 |           0.20 |               0.42 |            0.18 |                0.50 |                4 |
+| Celanese       |              6 |              NA |           0.15 |               0.59 |              NA |                  NA |                5 |
 
 ## Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
 
@@ -101,7 +140,7 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
-## Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportional rate?
+## Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
 
 ``` r
 topPolluters %>%
@@ -126,7 +165,7 @@ topPolluters %>%
     title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018\nand the Resulting Exposure to Low-Income People and\nRacial/Ethnic Minorities",
     caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.\nThe percentages are in regards to the makeup of the at-risk populations (which are typically those nearest\nto the toxic facilities), but spefically how much of the at risk population is below the poverty line or is a\nracial/ethnic minority.",
     x = "Top Pollutors of Air Toxics\n(in Descending Order of Rank)",
-    y = "Percent Group Makes Up of Total At-Risk Population"
+    y = "Percent of Total At-Risk Population"
   ) +
   theme(
     legend.title = element_blank(),
