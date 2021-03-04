@@ -21,10 +21,10 @@ The development version of XXX is available from
 
 ``` r
 install.packages("devtools")
-#> Installing package into '/tmp/Rtmpx20dz2/temp_libpath6a5d7c911d68'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b736968eff'
 #> (as 'lib' is unspecified)
 install.packages("topPolluters")
-#> Installing package into '/tmp/Rtmpx20dz2/temp_libpath6a5d7c911d68'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b736968eff'
 #> (as 'lib' is unspecified)
 #> Warning: package 'topPolluters' is not available for this version of R
 #> 
@@ -100,7 +100,7 @@ topPolluters %>%
   theme(
     legend.title = element_blank(),
     plot.title = element_text(hjust = 0.5),
-    plot.caption = element_text(hjust = 0.5, size = 10),
+    plot.caption = element_text(hjust = 0.5),
     legend.position = "top"
   ) +
   scale_fill_manual(
@@ -112,3 +112,26 @@ topPolluters %>%
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+``` r
+filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
+  pivot_longer(
+    cols = c(toxic.air.rank, greenhouse.rank, toxic.water.rank),
+    names_to = "rank.type",
+    values_to = "ranking") %>%
+  ggplot(aes(x = polluter, y = ranking, label = ranking, fill = rank.type)) +
+  geom_linerange(aes(x = polluter, ymin = 50, ymax = ranking, colour = rank.type), 
+                   position = position_dodge(width = .4))+
+  geom_point(aes(x = polluter, y = ranking, colour = rank.type),
+               position = position_dodge(width = .4))+
+  scale_x_discrete(expand = expansion(add = c(0, 0))) +
+  geom_text(aes(label = round(ranking, .4)), 
+            position = position_dodge(0.4), vjust = -.4)+
+  theme_light()+
+  theme(legend.position = "top") +
+  theme(axis.text.x = element_text(angle = -90, hjust = 0)) +
+  scale_y_continuous(trans = "reverse",
+                     expand = expansion(add = c(.6, 4)))
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
