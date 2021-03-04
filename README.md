@@ -3,7 +3,7 @@
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
-# Top U.S. Climate, Air, and Water Polluters (data from 2018)
+# Top 100 U.S. Climate, Air, and Water Polluters (data from 2018)
 
 <!-- badges: start -->
 
@@ -12,17 +12,23 @@
 ## Dataset Description
 
 Data on the combined toxic 100 / greenhouse 100 indexes (2020 report,
-based on 2018 data). Researchers at the Political Economy Research
-Institute (PERI) at the University of Massachusetts Amherst published
-new editions of the Greenhouse 100 Index, ranking U.S. companies by
-their emissions from their large facilities responsible for global
-climate change according to the U.S. EPA Greenhouse Gas Reporting
-Program, and the Toxic 100 Air and Toxic 100 Water Indexes, ranking U.S.
-industrial polluters using the U.S. EPA Toxics Release Inventory. The
-PERI Indexes include Environmental Justice indicators to assess impacts
-on people below the poverty line and racial/ethnic minorities.
-Specifically, these Environmental Justice variables measure marginalized
-groups possible exposure to the toxins released by specific
+based on 2018 data).
+
+Researchers at the Political Economy Research Institute (PERI) at the
+University of Massachusetts Amherst published new editions of the
+Greenhouse 100 Index, Toxic 100 Air Index, and the Toxic 100 Water
+Index. The Greenhouse 100 Index ranks U.S. companies by their emissions
+from their large facilities responsible for global climate change. They
+used data from the U.S. EPA Greenhouse Gas Reporting Program to
+determine the greenhouse ranks. The Toxic 100 Air and Toxic 100 Water
+Indexes rank U.S. industrial polluters by the toxics from their large
+facilities. They used data from the U.S. EPA Toxics Release Inventory to
+determine the toxics ranks.
+
+The PERI Indexes also includes Environmental Justice indicators to
+assess impacts on people below the poverty line and racial/ethnic
+minorities. Specifically, these Environmental Justice variables measure
+marginalized groups possible exposure to the toxins released by specific
 corporations/entities, and the percent of the total at-risk population
 each subgroup makes up.
 
@@ -80,9 +86,9 @@ each subgroup makes up.
 
 <!-- end list -->
 
-    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b73583c47b'
+    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b74095718c'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b73583c47b'
+    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b74095718c'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 
@@ -108,6 +114,14 @@ each subgroup makes up.
 | BASF           |              4 |             147 |           0.20 |               0.35 |            0.15 |                0.48 |                2 |
 | Dow Inc.       |              5 |              44 |           0.20 |               0.42 |            0.18 |                0.50 |                4 |
 | Celanese       |              6 |              NA |           0.15 |               0.59 |              NA |                  NA |                5 |
+
+## Use
+
+Environmental racism and discrimination is very pertinent in today’s
+world as it is a huge contributor to various health issues, and this
+dataset can help answer important questions regarding what U.S.
+corporations are contributing to different types of pollution both
+overall and in different communities.
 
 ## Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
 
