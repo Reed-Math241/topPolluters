@@ -21,21 +21,16 @@ The development version of XXX is available from
 
 ``` r
 install.packages("devtools")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72098e8d7'
+#> Installing package into '/tmp/RtmpSmIAXV/temp_libpath5314180781f0'
 #> (as 'lib' is unspecified)
 install.packages("topPolluters")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72098e8d7'
+#> Installing package into '/tmp/RtmpSmIAXV/temp_libpath5314180781f0'
 #> (as 'lib' is unspecified)
 #> Warning: package 'topPolluters' is not available for this version of R
 #> 
 #> A version of this package for your version of R might be available elsewhere,
 #> see the ideas at
 #> https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
-```
-
-## Example 1 - U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexs
-
-``` r
 library(topPolluters)
 #> Loading required package: dplyr
 #> 
@@ -51,6 +46,7 @@ library(ggplot2)
 library(viridis)
 #> Loading required package: viridisLite
 library(forcats)
+### Sample of the data.
 head(topPolluters)
 #>         polluter toxic.air.rank greenhouse.rank toxic.air.poor
 #> 1 LyondellBasell              1              91           0.17
@@ -66,6 +62,12 @@ head(topPolluters)
 #> 4               0.35            0.15                0.48                2
 #> 5               0.42            0.18                0.50                4
 #> 6               0.59              NA                  NA                5
+```
+
+## Example 1 - U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexs
+
+``` r
+
 
 filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
   pivot_longer(

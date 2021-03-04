@@ -2,12 +2,14 @@ Package: topPolluters
 Type: Package
 Title: Top Climate, Air, and Water Polluters (2018)
 Version: 0.1.0
-Author: University of Massachusetts Amherst, Political Economy Research Institute
+Author: Michael Ash <mash@econs.umass.edu>
 Maintainer: Alyssa <alyandric@reed.edu> , Blaise <albisbub@reed.edu>
-Description: This data set lists the top 100 polluter companies by the comparative risk they pose to chronic human health from air pollutants directly released or transferred to incinerators (and not destroyed) from large facilities in the US in 2018.
-License: GPL-3
+Description: This data set lists the top 100 polluter companies by the comparative risk they pose to chronic human health from air pollutants directly released or transferred to incinerators (and not destroyed) from large facilities in the US in 2018. The authors acknowledge the Political Economy Research Institute at the University of Massachusetts for providing data that have contributed to the research results reported within this project.
 Encoding: UTF-8
+License: MIT + file LICENSE
 LazyData: true
 Depends: R (>= 2.10),dplyr
 RoxygenNote: 7.1.1
+
+
 

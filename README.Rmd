@@ -28,15 +28,17 @@ The development version of XXX is available from [GitHub](https://github.com/) w
 ```{r}
 install.packages("devtools")
 install.packages("topPolluters")
-```
-## Example 1 - U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexs
-```{r}
 library(topPolluters)
 library(tidyr)
 library(ggplot2)
 library(viridis)
 library(forcats)
+### Sample of the data.
 head(topPolluters)
+```
+## Example 1 - U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexs
+```{r}
+
 
 filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
   pivot_longer(
