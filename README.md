@@ -21,10 +21,10 @@ The development version of XXX is available from
 
 ``` r
 install.packages("devtools")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b739226ede'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72098e8d7'
 #> (as 'lib' is unspecified)
 install.packages("topPolluters")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b739226ede'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72098e8d7'
 #> (as 'lib' is unspecified)
 #> Warning: package 'topPolluters' is not available for this version of R
 #> 
@@ -33,7 +33,7 @@ install.packages("topPolluters")
 #> https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
 ```
 
-## Example 1 - Top 10 Water Polluters and their rankings.
+## Example 1 - U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexs
 
 ``` r
 library(topPolluters)
@@ -51,23 +51,57 @@ library(ggplot2)
 library(viridis)
 #> Loading required package: viridisLite
 library(forcats)
-filter(topPolluters, toxic.water.rank <= 12) %>%
-  pivot_longer(!polluter, names_to = "Metric", values_to = "Value") %>%
-  filter( grepl('rank', Metric)) %>%
-  mutate(text = fct_reorder(Metric, Value)) %>%
-  ggplot(aes(fill = polluter, y = Value, x = Metric)) +
-  geom_bar(position = "dodge", stat = "identity") +
-  scale_fill_viridis(discrete = T, option = "E") +
-  ggtitle("Pollution Metrics By Firm") +
-  facet_wrap(~polluter) +
-  theme(legend.position = "none") +
-  xlab("") +
-  theme(axis.text.x = element_text(angle = -90, hjust = 0))
-#> Warning: Removed 4 rows containing missing values (geom_bar).
+head(topPolluters)
+#>         polluter toxic.air.rank greenhouse.rank toxic.air.poor
+#> 1 LyondellBasell              1              91           0.17
+#> 2         Boeing              2              NA           0.15
+#> 3       Huntsman              3              NA           0.15
+#> 4           BASF              4             147           0.20
+#> 5       Dow Inc.              5              44           0.20
+#> 6       Celanese              6              NA           0.15
+#>   toxic.air.minority greenhouse.poor greenhouse.minority toxic.water.rank
+#> 1               0.68            0.19                0.78                3
+#> 2               0.35              NA                  NA               77
+#> 3               0.47              NA                  NA              135
+#> 4               0.35            0.15                0.48                2
+#> 5               0.42            0.18                0.50                4
+#> 6               0.59              NA                  NA                5
+
+filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
+  pivot_longer(
+    cols = c(toxic.air.rank, greenhouse.rank, toxic.water.rank),
+    names_to = "rank.type",
+    values_to = "ranking") %>%
+  ggplot(aes(x = polluter, y = ranking, label = ranking, colour = rank.type)) +
+  geom_linerange(aes(x = polluter, ymin = 50, ymax = ranking, colour = rank.type), 
+                   position = position_dodge(width = .4))+
+  geom_point(aes(x = polluter, y = ranking, colour = rank.type),
+               position = position_dodge(width = .4))+
+  scale_x_discrete(expand = expansion(add = c(.3, .3))) +
+  scale_y_continuous(trans = "reverse",
+                     expand = expansion(add = c(.6, 4))) +
+  scale_color_manual(
+    labels = c("Greenhouse Rank", "Toxic Air Rank", "Toxic Water Rank"),
+    values = c("#11B31A", "#D8BC42", "#4DA2F0")) +
+  geom_text(aes(label = round(ranking, .4)), 
+            position = position_dodge(0.4), vjust = -.4)+
+  labs( 
+    title = "U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexes",
+    subtitle = "From PERI's Greenhouse 100 Index, Toxic 100 Air Polluters Index,\nand Toxic 100 Water Polluters Index",
+    y = "Rank on Each Index"
+  ) +
+  theme_light()+
+  theme(legend.position = "top",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        axis.title.x = element_blank(),
+        legend.title = element_blank(),
+        axis.text.x = element_text(angle = -90, hjust = 0)) 
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" /> \#\#
-Example 2
+Example 2 - The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018
+and Resulting Exposure to Low-Income People and Racial/Ethnic Minorities
 
 ``` r
 topPolluters %>%
@@ -89,15 +123,15 @@ topPolluters %>%
     expand = expansion(add = c(0, 2))
   ) +
   labs(
-    title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018\nand the Resulting Exposure to Low-Income People and Minorities",
+    title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018 and the\nResulting Exposure to Low-Income People and Racial/Ethnic Minorities",
     caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.\nThe percentages are in regards to the makeup of the at-risk populations (which are typically those nearest to the toxic facilities),\nbut spefically how much of the at risk population is below the poverty line or is a racial/ethnic minority.",
     x = "Top Pollutors of Air Toxics (in Descending Order of Rank)",
     y = "Percent Group Makes Up of Total At-Risk Population"
   ) +
   theme(
     legend.title = element_blank(),
-    plot.title = element_text(hjust = 0.5),
-    plot.caption = element_text(hjust = 0.5, size = 8),
+    plot.title = element_text(hjust = 0),
+    plot.caption = element_text(hjust = 0, size = 8),
     legend.position = "top"
   ) +
   scale_fill_manual(
@@ -109,38 +143,3 @@ topPolluters %>%
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
-
-``` r
-filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
-  pivot_longer(
-    cols = c(toxic.air.rank, greenhouse.rank, toxic.water.rank),
-    names_to = "rank.type",
-    values_to = "ranking") %>%
-  ggplot(aes(x = polluter, y = ranking, label = ranking, colour = rank.type)) +
-  geom_linerange(aes(x = polluter, ymin = 50, ymax = ranking, colour = rank.type), 
-                   position = position_dodge(width = .4))+
-  geom_point(aes(x = polluter, y = ranking, colour = rank.type),
-               position = position_dodge(width = .4))+
-  scale_x_discrete(expand = expansion(add = c(.3, .3))) +
-  scale_y_continuous(trans = "reverse",
-                     expand = expansion(add = c(.6, 4))) +
-  scale_color_manual(
-    name = "Type of Rank",
-    labels = c("Greenhouse Rank", "Toxic Air Rank", "Toxic Water Rank"),
-    values = c("#11B31A", "#D8BC42", "#4DA2F0")) +
-  geom_text(aes(label = round(ranking, .4)), 
-            position = position_dodge(0.4), vjust = -.4)+
-  labs( 
-    title = "U.S. Companies that are in the Top 50 Climate, Air, and Water Polluters",
-    subtitle = "From PERI's Greenhouse 110 Index, Toxic 100 Air Polluters Index, and Toxic 100 Water Polluters Index",
-    y = "Rank on Each Index"
-  ) +
-  theme_light()+
-  theme(legend.position = "top",
-        plot.title = element_text(hjust = 0.5),
-        plot.subtitle = element_text(hjust = 0.5),
-        axis.title.x = element_blank(),
-        axis.text.x = element_text(angle = -90, hjust = 0)) 
-```
-
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
