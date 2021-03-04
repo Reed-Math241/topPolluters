@@ -21,10 +21,10 @@ The development version of XXX is available from
 
 ``` r
 install.packages("devtools")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72a6a0e00'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7196089c7'
 #> (as 'lib' is unspecified)
 install.packages("topPolluters")
-#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72a6a0e00'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b7196089c7'
 #> (as 'lib' is unspecified)
 #> Warning: package 'topPolluters' is not available for this version of R
 #> 
@@ -123,8 +123,8 @@ topPolluters %>%
     expand = expansion(add = c(0, 2))
   ) +
   labs(
-    title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018 and the\nResulting Exposure to Low-Income People and\nRacial/Ethnic Minorities",
-    caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.\nThe percentages are in regards to the makeup of the at-risk populations (which are typically those nearest to\nthe toxic facilities), but spefically how much of the at risk population is below the poverty line or is a racial/ethnic minority.",
+    title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018\nand the Resulting Exposure to Low-Income People and\nRacial/Ethnic Minorities",
+    caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.\nThe percentages are in regards to the makeup of the at-risk populations (which are typically those nearest\nto the toxic facilities), but spefically how much of the at risk population is below the poverty line or is a\nracial/ethnic minority.",
     x = "Top Pollutors of Air Toxics\n(in Descending Order of Rank)",
     y = "Percent Group Makes Up of Total At-Risk Population"
   ) +
