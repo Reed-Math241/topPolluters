@@ -81,7 +81,7 @@ topPolluters %>%
   theme(
     legend.title = element_blank(),
     plot.title = element_text(hjust = 0.5),
-    plot.caption = element_text(hjust = 0.5, size = 10),
+    plot.caption = element_text(hjust = 0.5),
     legend.position = "top"
   ) +
   scale_fill_manual(
@@ -91,6 +91,23 @@ topPolluters %>%
   ) +
   coord_flip()
 ```
-
-
-
+```{r}
+filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
+  pivot_longer(
+    cols = c(toxic.air.rank, greenhouse.rank, toxic.water.rank),
+    names_to = "rank.type",
+    values_to = "ranking") %>%
+  ggplot(aes(x = polluter, y = ranking, label = ranking, fill = rank.type)) +
+  geom_linerange(aes(x = polluter, ymin = 50, ymax = ranking, colour = rank.type), 
+                   position = position_dodge(width = .4))+
+  geom_point(aes(x = polluter, y = ranking, colour = rank.type),
+               position = position_dodge(width = .4))+
+  scale_x_discrete(expand = expansion(add = c(0, 0))) +
+  geom_text(aes(label = round(ranking, .4)), 
+            position = position_dodge(0.4), vjust = -.4)+
+  theme_light()+
+  theme(legend.position = "top") +
+  theme(axis.text.x = element_text(angle = -90, hjust = 0)) +
+  scale_y_continuous(trans = "reverse",
+                     expand = expansion(add = c(.6, 4)))
+```
