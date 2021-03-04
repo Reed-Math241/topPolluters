@@ -78,7 +78,7 @@ topPolluters %>%
   theme(
     legend.title = element_blank(),
     plot.title = element_text(hjust = 0.5),
-    plot.caption = element_text(hjust = 0.5),
+    plot.caption = element_text(hjust = 0.5, size = 8),
     legend.position = "top"
   ) +
   scale_fill_manual(
@@ -94,17 +94,29 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
     cols = c(toxic.air.rank, greenhouse.rank, toxic.water.rank),
     names_to = "rank.type",
     values_to = "ranking") %>%
-  ggplot(aes(x = polluter, y = ranking, label = ranking, fill = rank.type)) +
+  ggplot(aes(x = polluter, y = ranking, label = ranking, colour = rank.type)) +
   geom_linerange(aes(x = polluter, ymin = 50, ymax = ranking, colour = rank.type), 
                    position = position_dodge(width = .4))+
   geom_point(aes(x = polluter, y = ranking, colour = rank.type),
                position = position_dodge(width = .4))+
-  scale_x_discrete(expand = expansion(add = c(0, 0))) +
+  scale_x_discrete(expand = expansion(add = c(.3, .3))) +
+  scale_y_continuous(trans = "reverse",
+                     expand = expansion(add = c(.6, 4))) +
+  scale_color_manual(
+    name = "Type of Rank",
+    labels = c("Greenhouse Rank", "Toxic Air Rank", "Toxic Water Rank"),
+    values = c("#11B31A", "#D8BC42", "#4DA2F0")) +
   geom_text(aes(label = round(ranking, .4)), 
             position = position_dodge(0.4), vjust = -.4)+
+  labs( 
+    title = "U.S. Companies that are in the Top 50 Climate, Air, and Water Polluters",
+    subtitle = "From PERI's Greenhouse 110 Index, Toxic 100 Air Polluters Index, and Toxic 100 Water Polluters Index",
+    y = "Rank on Each Index"
+  ) +
   theme_light()+
-  theme(legend.position = "top") +
-  theme(axis.text.x = element_text(angle = -90, hjust = 0)) +
-  scale_y_continuous(trans = "reverse",
-                     expand = expansion(add = c(.6, 4)))
+  theme(legend.position = "top",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        axis.title.x = element_blank(),
+        axis.text.x = element_text(angle = -90, hjust = 0)) 
 ```
