@@ -3,7 +3,7 @@
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
-# Top Climate, Air, and Water Polluters (2018)
+# Top Climate, Air, and Water Polluters (data from 2018)
 
 <!-- badges: start -->
 
@@ -21,10 +21,10 @@ The development version of XXX is available from
 
 ``` r
 install.packages("devtools")
-#> Installing package into '/tmp/RtmpSmIAXV/temp_libpath5314180781f0'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72a6a0e00'
 #> (as 'lib' is unspecified)
 install.packages("topPolluters")
-#> Installing package into '/tmp/RtmpSmIAXV/temp_libpath5314180781f0'
+#> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b72a6a0e00'
 #> (as 'lib' is unspecified)
 #> Warning: package 'topPolluters' is not available for this version of R
 #> 
@@ -64,11 +64,9 @@ head(topPolluters)
 #> 6               0.59              NA                  NA                5
 ```
 
-## Example 1 - U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexs
+## Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
 
 ``` r
-
-
 filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
   pivot_longer(
     cols = c(toxic.air.rank, greenhouse.rank, toxic.water.rank),
@@ -88,9 +86,9 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
   geom_text(aes(label = round(ranking, .4)), 
             position = position_dodge(0.4), vjust = -.4)+
   labs( 
-    title = "U.S. Companies that are in the Top 50 Climate, Air, and Water Polluter Indexes",
-    subtitle = "From PERI's Greenhouse 100 Index, Toxic 100 Air Polluters Index,\nand Toxic 100 Water Polluters Index",
-    y = "Rank on Each Index"
+    title = "U.S. Corporations/Entities that are Top Climate, Air, and Water Polluters",
+    subtitle = "All Corporations/Entities are in the top 50 of the Greenhouse 100 Index,\nToxic 100 Air Polluters Index, and Toxic 100 Water Polluters Index",
+    y = "Ranking on Each Index\n(the smaller the number, the worse the polluter)"
   ) +
   theme_light()+
   theme(legend.position = "top",
@@ -101,9 +99,9 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
         axis.text.x = element_text(angle = -90, hjust = 0)) 
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" /> \#\#
-Example 2 - The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018
-and Resulting Exposure to Low-Income People and Racial/Ethnic Minorities
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+## Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportional rate?
 
 ``` r
 topPolluters %>%
@@ -125,9 +123,9 @@ topPolluters %>%
     expand = expansion(add = c(0, 2))
   ) +
   labs(
-    title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018 and the\nResulting Exposure to Low-Income People and Racial/Ethnic Minorities",
-    caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.\nThe percentages are in regards to the makeup of the at-risk populations (which are typically those nearest to the toxic facilities),\nbut spefically how much of the at risk population is below the poverty line or is a racial/ethnic minority.",
-    x = "Top Pollutors of Air Toxics (in Descending Order of Rank)",
+    title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018 and the\nResulting Exposure to Low-Income People and\nRacial/Ethnic Minorities",
+    caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.\nThe percentages are in regards to the makeup of the at-risk populations (which are typically those nearest to\nthe toxic facilities), but spefically how much of the at risk population is below the poverty line or is a racial/ethnic minority.",
+    x = "Top Pollutors of Air Toxics\n(in Descending Order of Rank)",
     y = "Percent Group Makes Up of Total At-Risk Population"
   ) +
   theme(
