@@ -60,7 +60,7 @@ The PERI Indexes also includes Environmental Justice indicators to assess impact
 - https://www.peri.umass.edu/combined-toxic-100-greenhouse-100-indexes-current
 
 ## Installation
-
+The development version of topPolluters is available from GitHub with:
 ```{r, echo=FALSE}
 install.packages("devtools")
 install.packages("topPolluters")

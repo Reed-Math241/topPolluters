@@ -85,9 +85,11 @@ each subgroup makes up.
 
 ## Installation
 
-    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0bc76bcfc'
+The development version of topPolluters is available from GitHub with:
+
+    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e38d7c573'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0bc76bcfc'
+    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e38d7c573'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 
