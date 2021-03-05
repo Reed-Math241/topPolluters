@@ -87,9 +87,14 @@ each subgroup makes up.
 
 The development version of topPolluters is available from GitHub with:
 
-    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e38d7c573'
+``` r
+# install.packages("devtools")
+devtools::install_github("Reed-Math241/pkgGrpo")
+```
+
+    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e9c07fb1'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e38d7c573'
+    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e9c07fb1'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 

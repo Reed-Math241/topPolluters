@@ -61,6 +61,10 @@ The PERI Indexes also includes Environmental Justice indicators to assess impact
 
 ## Installation
 The development version of topPolluters is available from GitHub with:
+``` r
+# install.packages("devtools")
+devtools::install_github("Reed-Math241/pkgGrpo")
+```
 ```{r, echo=FALSE}
 install.packages("devtools")
 install.packages("topPolluters")
