@@ -3,7 +3,7 @@
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
-# topPolluters: Top 100 U.S. Climate, Air, and Water Polluters
+# topPolluters
 
 <!-- badges: start -->
 
@@ -99,11 +99,12 @@ The development version of topPolluters is available from GitHub with:
 ``` r
 # install.packages("devtools")
 # install.packages("topPolluters")
+# library(topPolluters)
 ```
 
-    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath49203123e202'
+    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath492052891225'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath49203123e202'
+    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath492052891225'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 

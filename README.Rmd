@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# topPolluters: Top 100 U.S. Climate, Air, and Water Polluters
+# topPolluters
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -69,6 +69,7 @@ The development version of topPolluters is available from GitHub with:
 ``` r
 # install.packages("devtools")
 # install.packages("topPolluters")
+# library(topPolluters)
 ```
 ```{r, echo=FALSE}
 install.packages("devtools")
