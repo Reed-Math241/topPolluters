@@ -85,9 +85,9 @@ each subgroup makes up.
 
 ## Installation
 
-    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0b1b582d46'
+    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0bc76bcfc'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0b1b582d46'
+    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0bc76bcfc'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 
@@ -163,7 +163,7 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
 
 ``` r
 topPolluters %>%
-  filter(toxic.air.rank <= 30) %>%
+  filter(toxic.air.rank <= 25) %>%
   select(polluter, toxic.air.rank, toxic.air.poor, toxic.air.minority) %>%
   pivot_longer(
     cols = c(toxic.air.minority, toxic.air.poor),
@@ -181,7 +181,7 @@ topPolluters %>%
     expand = expansion(add = c(0, 2))
   ) +
   labs(
-    title = "The Top 30 U.S. Industrial Pollutors of Air Toxics of 2018\nand the Resulting Exposure to Low-Income People and\nRacial/Ethnic Minorities",
+    title = "The Top 25 U.S. Industrial Pollutors of Air Toxics of 2018\nand the Resulting Exposure to Low-Income People and\nRacial/Ethnic Minorities",
     caption = "The ranking of the top air pollutors is based on total potential chronic human health risk from their facilities.\nThe percentages are in regards to the makeup of the at-risk populations (which are typically those nearest\nto the toxic facilities), but spefically how much of the at risk population is below the poverty line or is a\nracial/ethnic minority.",
     x = "Top Pollutors of Air Toxics\n(in Descending Order of Rank)",
     y = "Percent of Total At-Risk Population"
