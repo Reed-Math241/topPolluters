@@ -3,34 +3,43 @@
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.  -->
 
-# Top 100 U.S. Climate, Air, and Water Polluters (data from 2018)
+# topPolluters: Top 100 U.S. Climate, Air, and Water Polluters
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
+The goal of the topPolluters package is to make the data on the top 100
+U.S. climate, air, and water polluters of 2018—as well as the data
+regarding how much of the total population at risk of exposure to each
+of the mentioned U.S. corporations/entities’ pollutants are marginalized
+communities—more accessible to use and analyze.
+
 ## Dataset Description
 
-Data on the combined toxic 100 / greenhouse 100 indexes (2020 report,
-based on 2018 data).
+The data in the package comes from the combined Toxic 100 Air / Toxic
+100 Water / Greenhouse 100 indexes created and published by researchers
+at the Political Economy Research Institute (PERI) at the University of
+Massachusetts Amherst (a 2020 report, based on 2018 data).
 
-Researchers at the Political Economy Research Institute (PERI) at the
-University of Massachusetts Amherst published new editions of the
-Greenhouse 100 Index, Toxic 100 Air Index, and the Toxic 100 Water
-Index. The Greenhouse 100 Index ranks U.S. companies by their emissions
-from their large facilities responsible for global climate change. They
-used data from the U.S. EPA Greenhouse Gas Reporting Program to
-determine the greenhouse ranks. The Toxic 100 Air and Toxic 100 Water
-Indexes rank U.S. industrial polluters by the toxics from their large
-facilities. They used data from the U.S. EPA Toxics Release Inventory to
-determine the toxic ranks.
+The Greenhouse 100 Index ranks U.S. companies by their emissions from
+their large facilities responsible for global climate change. They used
+data from the U.S. EPA Greenhouse Gas Reporting Program to determine the
+greenhouse ranks.
 
-The PERI Indexes also includes Environmental Justice indicators to
+The Toxic 100 Air and Toxic 100 Water Indexes rank U.S. industrial
+polluters by the toxics from their large facilities. They used data from
+the U.S. EPA Toxics Release Inventory to determine the toxic ranks.
+
+The PERI Indexes also includes environmental justice indicators to
 assess impacts on people below the poverty line and racial/ethnic
-minorities. Specifically, these Environmental Justice variables measure
+minorities. Specifically, these environmental justice variables measure
 marginalized groups possible exposure to the toxins released by specific
 corporations/entities, and the percent of the total at-risk population
 each subgroup makes up.
+
+All of these indexes and the environmental justice indicators are in the
+topPolluters data package.
 
 ## Variable Description
 
@@ -52,7 +61,7 @@ each subgroup makes up.
   - Greenhouse 100 Rank; the company’s rank based on greenhouse gas
     emissions from large facilities in 2018
 
-### toxic.water.rank
+#### toxic.water.rank
 
   - Toxic 100 Water Rank; the company’s rank based on water toxics from
     large facilities in 2018
@@ -89,12 +98,12 @@ The development version of topPolluters is available from GitHub with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Reed-Math241/pkgGrpo")
+# install.packages("topPolluters")
 ```
 
-    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e9c07fb1'
+    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath49203123e202'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmpNOmJl5/temp_libpath502e9c07fb1'
+    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath49203123e202'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 
@@ -112,6 +121,12 @@ devtools::install_github("Reed-Math241/pkgGrpo")
     #>     intersect, setdiff, setequal, union
     #> Loading required package: viridisLite
 
+### Sample of the data.
+
+``` r
+kable(head(topPolluters))
+```
+
 | polluter       | toxic.air.rank | greenhouse.rank | toxic.air.poor | toxic.air.minority | greenhouse.poor | greenhouse.minority | toxic.water.rank |
 | :------------- | -------------: | --------------: | -------------: | -----------------: | --------------: | ------------------: | ---------------: |
 | LyondellBasell |              1 |              91 |           0.17 |               0.68 |            0.19 |                0.78 |                3 |
@@ -123,13 +138,21 @@ devtools::install_github("Reed-Math241/pkgGrpo")
 
 ## Use
 
-Environmental racism and discrimination is very pertinent in today’s
-world as it is a huge contributor to various health issues, and this
-dataset can help answer important questions regarding what U.S.
-corporations are contributing to different types of pollution both
-overall and in different communities.
+Air, water, and greenhouse gas toxins and pollutants is very pertinent
+problem in today’s world as it is a huge contributor to various deadly
+health issues and global warming. This dataset outlines 2018’s top U.S.
+contributors to these issues. But not only do the listed
+corporations/entities pollute the world and U.S. communities, this data
+shows how they contribute to environmental injustice, specifically
+environmental racism and discrimination. You can use this data to help
+answer important questions regarding how U.S. corporations are
+contributing to different types of pollution both overall and in
+different communities.
 
-### Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
+Here are two examples of some questions you can ask, and answer, with
+this data package:
+
+### Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes, and thus are arguably even more concerning?
 
 ``` r
 filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
@@ -164,7 +187,7 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
         axis.text.x = element_text(angle = -90, hjust = 0, vjust = .5)) 
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ### Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
 
@@ -207,4 +230,4 @@ topPolluters %>%
   coord_flip()
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
