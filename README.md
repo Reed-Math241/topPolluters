@@ -23,7 +23,7 @@ used data from the U.S. EPA Greenhouse Gas Reporting Program to
 determine the greenhouse ranks. The Toxic 100 Air and Toxic 100 Water
 Indexes rank U.S. industrial polluters by the toxics from their large
 facilities. They used data from the U.S. EPA Toxics Release Inventory to
-determine the toxics ranks.
+determine the toxic ranks.
 
 The PERI Indexes also includes Environmental Justice indicators to
 assess impacts on people below the poverty line and racial/ethnic
@@ -82,13 +82,12 @@ each subgroup makes up.
 ### Source
 
   - <https://www.peri.umass.edu/combined-toxic-100-greenhouse-100-indexes-current>
-    \#\# Installation
 
-<!-- end list -->
+## Installation
 
-    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b74095718c'
+    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0b1b582d46'
     #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmpNRmzp3/temp_libpath32b74095718c'
+    #> Installing package into '/tmp/RtmpP5Zlyt/temp_libpath2a0b1b582d46'
     #> (as 'lib' is unspecified)
     #> Warning: package 'topPolluters' is not available for this version of R
     #> 
@@ -123,7 +122,7 @@ dataset can help answer important questions regarding what U.S.
 corporations are contributing to different types of pollution both
 overall and in different communities.
 
-## Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
+### Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
 
 ``` r
 filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
@@ -155,12 +154,12 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
         plot.subtitle = element_text(hjust = 0.5),
         axis.title.x = element_blank(),
         legend.title = element_blank(),
-        axis.text.x = element_text(angle = -90, hjust = 0)) 
+        axis.text.x = element_text(angle = -90, hjust = 0, vjust = .5)) 
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
-## Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
+### Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
 
 ``` r
 topPolluters %>%

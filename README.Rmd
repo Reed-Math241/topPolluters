@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 ## Dataset Description
 Data on the combined toxic 100 / greenhouse 100 indexes (2020 report, based on 2018 data). 
 
-Researchers at the Political Economy Research Institute (PERI) at the University of Massachusetts Amherst published new editions of the Greenhouse 100 Index, Toxic 100 Air Index, and the Toxic 100 Water Index. The Greenhouse 100 Index ranks U.S. companies by their emissions from their large facilities responsible for global climate change. They used data from the U.S. EPA Greenhouse Gas Reporting Program to determine the greenhouse ranks. The Toxic 100 Air and Toxic 100 Water Indexes rank U.S. industrial polluters by the toxics from their large facilities. They used data from the U.S. EPA Toxics Release Inventory to determine the toxics ranks. 
+Researchers at the Political Economy Research Institute (PERI) at the University of Massachusetts Amherst published new editions of the Greenhouse 100 Index, Toxic 100 Air Index, and the Toxic 100 Water Index. The Greenhouse 100 Index ranks U.S. companies by their emissions from their large facilities responsible for global climate change. They used data from the U.S. EPA Greenhouse Gas Reporting Program to determine the greenhouse ranks. The Toxic 100 Air and Toxic 100 Water Indexes rank U.S. industrial polluters by the toxics from their large facilities. They used data from the U.S. EPA Toxics Release Inventory to determine the toxic ranks. 
 
 The PERI Indexes also includes Environmental Justice indicators to assess impacts on people below the poverty line and racial/ethnic minorities. Specifically, these Environmental Justice variables measure marginalized groups possible exposure to the toxins released by specific corporations/entities, and the percent of the total at-risk population each subgroup makes up.
 
@@ -58,6 +58,7 @@ The PERI Indexes also includes Environmental Justice indicators to assess impact
 
 ### Source
 - https://www.peri.umass.edu/combined-toxic-100-greenhouse-100-indexes-current
+
 ## Installation
 
 ```{r, echo=FALSE}
@@ -75,7 +76,7 @@ kable(head(topPolluters))
 ## Use
 Environmental racism and discrimination is very pertinent in today's world as it is a huge contributor to various health issues, and this dataset can help answer important questions regarding what U.S. corporations are contributing to different types of pollution both overall and in different communities.
 
-## Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
+### Example 1 - Are there any corporations/entities that rank highly (as top polluters) in all three indexes?
 ```{r}
 filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.rank <= 50) %>%
   pivot_longer(
@@ -106,10 +107,10 @@ filter(topPolluters, toxic.air.rank <= 50, greenhouse.rank <= 50, toxic.water.ra
         plot.subtitle = element_text(hjust = 0.5),
         axis.title.x = element_blank(),
         legend.title = element_blank(),
-        axis.text.x = element_text(angle = -90, hjust = 0)) 
+        axis.text.x = element_text(angle = -90, hjust = 0, vjust = .5)) 
 ```
 
-## Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
+### Example 2 - Do top toxic air polluters negatively impact marginalized communities at a disproportionate rate?
 ```{r}
 topPolluters %>%
   filter(toxic.air.rank <= 30) %>%
