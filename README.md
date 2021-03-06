@@ -98,19 +98,10 @@ The development version of topPolluters is available from GitHub with:
 
 ``` r
 # install.packages("devtools")
-# install.packages("topPolluters")
+# devtools::install_github("Reed-Math241/topPolluters")
 # library(topPolluters)
 ```
 
-    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath492052891225'
-    #> (as 'lib' is unspecified)
-    #> Installing package into '/tmp/RtmplxyL7f/temp_libpath492052891225'
-    #> (as 'lib' is unspecified)
-    #> Warning: package 'topPolluters' is not available for this version of R
-    #> 
-    #> A version of this package for your version of R might be available elsewhere,
-    #> see the ideas at
-    #> https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
     #> Loading required package: dplyr
     #> 
     #> Attaching package: 'dplyr'

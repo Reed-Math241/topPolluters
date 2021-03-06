@@ -68,12 +68,10 @@ All of these indexes and the environmental justice indicators are in the topPoll
 The development version of topPolluters is available from GitHub with:
 ``` r
 # install.packages("devtools")
-# install.packages("topPolluters")
+# devtools::install_github("Reed-Math241/topPolluters")
 # library(topPolluters)
 ```
 ```{r, echo=FALSE}
-install.packages("devtools")
-install.packages("topPolluters")
 library(topPolluters)
 library(tidyr)
 library(ggplot2)
