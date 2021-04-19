@@ -5,6 +5,8 @@
 
 # topPolluters
 
+## By: Alyssa Andrichik & Blaise Albis-Burdige
+
 <!-- badges: start -->
 
 <!-- badges: end -->
