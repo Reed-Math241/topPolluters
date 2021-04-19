@@ -63,7 +63,7 @@ topPolluters data package.
   - Greenhouse 100 Rank; the company’s rank based on greenhouse gas
     emissions from large facilities in 2018
 
-#### toxic.water.rank
+### toxic.water.rank
 
   - Toxic 100 Water Rank; the company’s rank based on water toxics from
     large facilities in 2018
