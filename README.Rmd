@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 ```
 
 # topPolluters
-## By: Alyssa Andrichik & Blaise Albis-Burdige
+#### By: Alyssa Andrichik & Blaise Albis-Burdige
 <!-- badges: start -->
 <!-- badges: end -->
 The goal of the topPolluters package is to make the data on the top 100 U.S. climate, air, and water polluters of 2018—as well as the data regarding how much of the total population at risk of exposure to each of the mentioned U.S. corporations/entities' pollutants are marginalized communities—more accessible to use and analyze.
